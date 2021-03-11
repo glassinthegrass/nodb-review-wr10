@@ -7,14 +7,15 @@
 
 //To view how to build a functional component, visit ./Components/Header.js
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import Header from './Components/Header';
 import Finder from './Components/Finder';
 import Pokedex from './Components/Pokedex';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       caughtPokemon: []
@@ -22,20 +23,21 @@ class App extends Component {
     this.catchPokemon = this.catchPokemon.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     //componentDidMount is a lifecycle method. It will fire after the first invocation of render
     //in the component. This is a great method for retrieving data from a server that you need 
     //in your component right away.
-
+    axios.get('/api/caught-pokemon')
+      .then(res => {
+        this.setState({ caughtPokemon: res.data })
+      })
+      .catch(err => console.log(err))
   }
-
   //This method will send a pokemon object to the server to be added to our API. To see
   //where this connects, view catchPokemon in server/pokemonCtrl.js, and to see where it
   //is invoked, visit Grass.js(referred to as this.props.catchFn)
-  catchPokemon(pokemon){
-
+  catchPokemon(pokemon) {
   }
-
   //This method will update the name of a caughtPokemon. It takes id and newName as arguments,
   //passing them as a parameter(id) and a body(newName placed in the body obj on line 53). To see
   //where this connects, view editName in server/pokemonCtrl.js, and to see where it is invoked,

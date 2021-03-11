@@ -15,6 +15,9 @@ app.use(express.json());
 //grassCtrl endpoint
 app.get('/api/wild-pokemon', grassCtrl.getWildPokemon);
 
+
+//check controller build handler function
+
 //pokeCtrl endpoints
 app.get('/api/caught-pokemon', pokeCtrl.getCaughtPokemon);
 app.post('/api/caught-pokemon', pokeCtrl.catchPokemon);

@@ -1,4 +1,12 @@
+//start with what you are working with. an empty array
+
 const caughtPokemon = [];
+
+//then an ID. keep track of unique ids
+
+// for it to be full crud 
+
+//dont need to edit entire project
 let id = 1;
 
 module.exports = {
