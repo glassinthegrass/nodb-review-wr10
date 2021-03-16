@@ -4,10 +4,12 @@
 //3. Use middleware to invoke your JSON parser - app.use(express.json());
 //4. Use app.listen to define where the server should listen for requests - 
 //   app.listen(4444, () => console.log(`Server running on 4444`))
+
+
 const express = require('express'),
       grassCtrl = require('./controllers/grassCtrl'),
-      pokeCtrl = require('./controllers/pokemonCtrl'),
-      port = 4444,
+      pokeCtrl = require('./controllers/pokeCtrl'),
+      port = 3111,
       app = express();
 
 app.use(express.json());

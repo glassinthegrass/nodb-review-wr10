@@ -27,9 +27,8 @@ class App extends Component {
     //componentDidMount is a lifecycle method. It will fire after the first invocation of render
     //in the component. This is a great method for retrieving data from a server that you need 
     //in your component right away.
-    axios.get('/api/caught-pokemon')
+    axios.get('http://localhost:3111/api/caught-pokemon')
       .then(res => {
-        // console.log(res)
         this.setState({ caughtPokemon: res.data })
       })
       .catch(err => console.log(err))
@@ -38,7 +37,7 @@ class App extends Component {
   //where this connects, view catchPokemon in server/pokemonCtrl.js, and to see where it
   //is invoked, visit Grass.js(referred to as this.props.catchFn)
   catchPokemon(pokemon){
-    axios.post('/api/caught-pokemon', {pokemon: pokemon})
+    axios.post('htt/api/caught-pokemon', {pokemon: pokemon})
       .then(res => {
         this.setState({ caughtPokemon: res.data })
       })
